@@ -12,14 +12,13 @@ export class QuanLyPhimService {
 
   layDanhSachPhim(): Observable<any>{
     const url = 'http://svcy2.myclass.vn/api/QuanLyPhim/LayDanhSachPhim?MaNhom=GP06'
-    let observable = this.http.get(url).pipe(
+    return this.http.get(url).pipe(
       tap(
         () => {},
       catchError(err =>{
         return this.handleError(err);
       })
     ));
-    return observable;
   }   
 
   handleError(err){
