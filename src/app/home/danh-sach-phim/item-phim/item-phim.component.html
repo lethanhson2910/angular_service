@@ -2,7 +2,18 @@
   <img class="card-img-top" [src]="phim.HinhAnh" alt="">
   <div class="card-body">
       <h4 class="card-title">{{phim.TenPhim}}</h4>
-      <button class="btn btn-primary">Like</button>
+      
+      <!-- Cách 1.1: truyền 1 tham số lên url -->
+      <!-- <a class="btn btn-primary" routerLink="/home/chi-tiet-phim/{{phim.MaPhim}}">Mua vé</a> -->
+
+      <!-- Cách 1.2: -->
+      <!-- <a class="btn btn-primary" [routerLink]="['/home/chi-tiet-phim/', phim.MaPhim]">Mua vé</a> -->
+
+      <!-- Cách 2: truyền nhiều tham số lên url-->
+      <!-- <a class="btn btn-primary" [routerLink]="['/home/chi-tiet-phim/']" [queryParams]="{tenphim: phim.TenPhim, maphim: phim.MaPhim}">Mua vé</a> -->
+
+      <!-- cách 3: -->
+      <button class="btn btn-primary" (click)="muaVe()">Mua vé</button>
   </div>
 </div>
 

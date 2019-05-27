@@ -11,7 +11,7 @@ export class QuanLyPhimService {
   constructor(private http: HttpClient) { }
 
   layDanhSachPhim(): Observable<any>{
-    const url = 'http://svcy2.myclass.vn/api/QuanLyPhim/LayDanhSachPhim?MaNhom=GP06'
+    const url = 'http://svcy2.myclass.vn/api/QuanLyPhim/LayDanhSachPhim?MaNhom=GP09'
     return this.http.get(url).pipe(
       tap(
         () => {},
@@ -20,6 +20,28 @@ export class QuanLyPhimService {
       })
     ));
   }   
+
+  layChiTietPhim(maPhim): Observable<any>{
+    const url = `http://svcy2.myclass.vn/api/QuanLyPhim/LayChiTietPhim?MaPhim=${maPhim}`
+    return this.http.get(url).pipe(
+      tap(
+        () => {},
+      catchError(err =>{
+        return this.handleError(err);
+      })
+    ));
+  }
+
+  chiTietPhongve(maLichChieu): Observable<any>{
+    const url = `http://svcy2.myclass.vn/api/QuanLyPhim/ChiTietPhongVe?MaLichChieu==${maLichChieu}`
+    return this.http.get(url).pipe(
+      tap(
+        () => {},
+      catchError(err =>{
+        return this.handleError(err);
+      })
+    ));
+  }
 
   handleError(err){
     // if(err.status === 400){

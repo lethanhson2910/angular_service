@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-item-phim',
@@ -7,9 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemPhimComponent implements OnInit {
   @Input() phim;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  muaVe(){
+    this.router.navigate(["/home/chi-tiet-phim/", this.phim.MaPhim], {queryParams: {tenphim: this.phim.TenPhim}});
+  }
 }
